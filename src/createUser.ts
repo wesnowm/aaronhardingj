@@ -3,6 +3,8 @@ import { User as FirebaseUser } from 'firebase/auth'
 import { DecodedIdToken } from 'firebase-admin/auth'
 import isClientSide from 'src/isClientSide'
 import { Claims, filterStandardClaims } from 'src/claims'
+import { User } from './sharedTypes'
+import { getConfig } from './config'
 
 interface UserDeserialized {
   id?: string
@@ -29,22 +31,6 @@ interface CreateUserInput {
 }
 
 type getIdToken = (forceRefresh?: boolean) => Promise<string | null>
-
-export interface User {
-  id: string | null
-  email: string | null
-  emailVerified: boolean
-  phoneNumber: string | null
-  displayName: string | null
-  photoURL: string | null
-  claims: Record<string, string | boolean>
-  tenantId: string | null
-  getIdToken: (forceRefresh?: boolean) => Promise<string | null>
-  clientInitialized: boolean
-  firebaseUser: FirebaseUser | null
-  signOut: () => Promise<void>
-  serialize: (a?: { includeToken?: boolean }) => string
-}
 
 /**
  * Take a representation of a Firebase user from a maximum of one of:
@@ -119,8 +105,9 @@ const createUser = ({
       const { getApp } = require('firebase/app')
       // eslint-disable-next-line global-require,  @typescript-eslint/no-var-requires
       const { getAuth, signOut } = require('firebase/auth')
+      const { firebaseClientAppName } = getConfig()
 
-      signOutFunc = async () => signOut(getAuth(getApp()))
+      signOutFunc = async () => signOut(getAuth(getApp(firebaseClientAppName)))
     }
 
     /**

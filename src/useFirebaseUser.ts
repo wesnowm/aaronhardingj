@@ -7,7 +7,8 @@ import {
   onIdTokenChanged,
 } from 'firebase/auth'
 import { getConfig } from 'src/config'
-import createUser, { User } from 'src/createUser'
+import createUser from 'src/createUser'
+import { User } from 'src/sharedTypes'
 import { Claims, filterStandardClaims } from 'src/claims'
 import logDebug from 'src/logDebug'
 
@@ -175,7 +176,10 @@ const useFirebaseUser = () => {
     }
 
     // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#onidtokenchanged
-    const unsubscribe = onIdTokenChanged(getAuth(getApp()), onIdTokenChange)
+
+    const { firebaseClientAppName } = getConfig()
+    const app = getApp(firebaseClientAppName)
+    const unsubscribe = onIdTokenChanged(getAuth(app), onIdTokenChange)
     return () => {
       unsubscribe()
       isCancelled = true
