@@ -4,8 +4,8 @@ A jQuery based Javascript class that handles all key presses. Offers a continuou
 
 ## Defaults
 
-Continuous key press: false
-Refresh rate: 30 per second
+<b>Continuous key press:</b> false
+<b>Refresh rate:</b> 30 per second
 
 ## Usage
 
