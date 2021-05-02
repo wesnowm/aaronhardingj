@@ -5,6 +5,7 @@ A jQuery based Javascript class that handles all key presses. Offers a continuou
 ## Defaults
 
 <b>Continuous key press:</b> false
+
 <b>Refresh rate:</b> 30 per second
 
 ## Usage
@@ -20,8 +21,8 @@ Assign functions to keys by calling the add() method from the handler. This meth
 ```javascript
 KeyController.add({
   key, // which key to assign following functions to
-  down, // function to run when key is pressed down, and the function that is run if continuous key press event is set
-  up, // function to run when key is released
+  down: function(){}, // function to run when key is pressed down, and the function that is run if continuous key press event is set
+  up: function(){}, // function to run when key is released
   repeat, // boolean to toggle continuous key press. optional. default value: true
   repeatDelay // number of times per second to fire the down event whilst key is held down
 }); 
