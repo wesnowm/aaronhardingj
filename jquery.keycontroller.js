@@ -8,7 +8,7 @@
 function KeyController(repeat, repeatDelay) {
 	this.defaults = {
 		'repeat' : repeat || false,
-		'repeatDelay' : repeatDelay || 30
+		'repeatDelay' : repeatDelay || 1
 	}
 	this.repeatedCallsHandler = {};
 	this.activeKeys = {};
@@ -16,10 +16,10 @@ function KeyController(repeat, repeatDelay) {
 KeyController.prototype = {
 
 	add: function(options) {
+		options = $.extend( {}, KeyController.defaults, options );
 
 		function triggerDownKeyCallback() {
-			if (!KeyController.activeKeys[options.key])
-			{
+			if (!KeyController.activeKeys[options.key])	{
 				clearInterval(KeyController.repeatedCallsHandler[options.key]);
 				KeyController.repeatedCallsHandler[options.key] = null;
 			} else {
@@ -27,27 +27,19 @@ KeyController.prototype = {
 			}
 		}
 
-		options = $.extend( {}, KeyController.defaults, options );
-
 		$(document).keydown(function(event) {
-
-		    if((event.keyCode || event.which) === options.key && !KeyController.activeKeys[options.key])
-		    {
-		    	if(options.repeat)
-		    		KeyController.repeatedCallsHandler[options.key] = setInterval(triggerDownKeyCallback, 1 / options.repeatDelay);
-		    	else
-		    		triggerDownKeyCallback();
-
+		    if((event.keyCode || event.which) === options.key && !KeyController.activeKeys[options.key]) {
 		        KeyController.activeKeys[options.key] = true;
+		    	triggerDownKeyCallback();
+		    	if(options.repeat)
+		    		KeyController.repeatedCallsHandler[options.key] = setInterval(triggerDownKeyCallback, 1000 / options.repeatDelay);
 		    }
-
-			return;
 		});
 
 		$(document).keyup(function(event) {
 		    if(event.keyCode === options.key) {
 		        KeyController.activeKeys[options.key] = false;
-		        if(!options.repeat && options.up) options.up();
+		        if(options.up) options.up();
 		    }
 		});
 	},
