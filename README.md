@@ -16,7 +16,7 @@ Instantiate the controller by assigning it to a variable. Good practice is to us
 var KeyController = new KeyController();
 ```
 
-Assign functions to keys by calling the add() method from the handler. This method can be called multiple times for different keys.
+Assign functions to keys by calling the <b>add()</b> method from the handler. This method can be called multiple times for different keys.
 
 ```javascript
 KeyController.add({
@@ -41,5 +41,37 @@ KeyController.add({
   },
   repeat: true,
   repeatDelay: 10
+}); 
+```
+
+## Full example
+
+Below is a small example that continually prints a message in the console whilst the 'A' key is pressed and held down, and then prints a last message when the 'A' key has been released. Also it prints one message in the console when the 'D' key is pressed, and then prints a message when the 'D' key has been released.
+
+```javascript
+
+var KeyController = new KeyController();
+
+KeyController.add({
+  '65',
+  down: function(){
+    console.log('A key has been pressed and this will keep running.');
+  },
+  up: function(){
+    console.log('A key has been released.');
+  },
+  repeat: true,
+  repeatDelay: 10
+}); 
+
+KeyController.add({
+  '65',
+  down: function(){
+    console.log('A key has been pressed and this will keep running.');
+  },
+  up: function(){
+    console.log('A key has been released.');
+  },
+  repeat: false
 }); 
 ```
