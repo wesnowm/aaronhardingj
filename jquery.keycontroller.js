@@ -14,7 +14,6 @@ function KeyController(repeat, repeatDelay) {
 	this.activeKeys = {};
 }
 KeyController.prototype = {
-
 	add: function(options) {
 		options = $.extend( {}, KeyController.defaults, options );
 
