@@ -1,6 +1,6 @@
 # Javascript Continuous Key Press Handler
 
-A jQuery based Javascript class that handles all key presses. Offers a continuous key press event on multiple keys at a customised refresh rate. Allows the setting of a different callback function for when the key is pressed and to when it has been released.
+A jQuery based Javascript class that handles all key presses. Offers a continuous key press event on multiple keys at a custom refresh rate. Allows the setting of a different callback function for when the key is pressed and to when it has been released.
 
 ## Defaults
 
@@ -55,22 +55,22 @@ var KeyController = new KeyController();
 KeyController.add({
   '65',
   down: function(){
-    console.log('A key has been pressed and this will keep running.');
+    console.log('The A key has been pressed and this message will keep printing to the console at a rate of 10 per second.');
   },
   up: function(){
-    console.log('A key has been released.');
+    console.log('The A key has been released, the messages will now stop.');
   },
   repeat: true,
   repeatDelay: 10
 }); 
 
 KeyController.add({
-  '65',
+  '68',
   down: function(){
-    console.log('A key has been pressed and this will keep running.');
+    console.log('The D key has been pressed.');
   },
   up: function(){
-    console.log('A key has been released.');
+    console.log('The D key has been released.');
   },
   repeat: false
 }); 
