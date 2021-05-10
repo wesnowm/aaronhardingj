@@ -27,8 +27,8 @@ KeyController.add({
   key, // which key to assign following functions to
   down: function(){}, // function to run when key is pressed down, and the function that is run if continuous key press event is set
   up: function(){}, // function to run when key is released
-  repeat, // boolean to toggle continuous key press. optional. default value: true
-  repeatDelay // number of times per second to fire the down event whilst key is held down
+  continuous, // boolean to toggle continuous key press. optional. default value: true
+  rate // number of times per second to fire the down event whilst key is held down. optional. default value: 30
 }); 
 ```
 
@@ -43,8 +43,8 @@ KeyController.add({
   up: function(){
     console.log('key has been released');
   },
-  repeat: true,
-  repeatDelay: 10
+  continuous: true,
+  rate: 10
 }); 
 ```
 
@@ -64,8 +64,8 @@ KeyController.add({
   up: function(){
     console.log('The A key has been released, the messages will now stop.');
   },
-  repeat: true,
-  repeatDelay: 10
+  continuous: true,
+  rate: 10
 }); 
 
 KeyController.add({
@@ -76,6 +76,6 @@ KeyController.add({
   up: function(){
     console.log('The D key has been released.');
   },
-  repeat: false
+  continuous: false
 }); 
 ```
