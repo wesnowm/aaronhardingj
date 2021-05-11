@@ -5,10 +5,10 @@
 
 * @author Aaron Harding <aaron.harding@graphitedigital.com>
 */
-function KeyController(repeat, repeatDelay) {
+function KeyController(continuous, rate) {
 	this.defaults = {
-		'repeat' : repeat || false,
-		'repeatDelay' : repeatDelay || 1
+		'continuous' : continuous || false,
+		'rate' : rate || 30
 	}
 	this.repeatedCallsHandler = {};
 	this.activeKeys = {};
@@ -30,8 +30,8 @@ KeyController.prototype = {
 		    if((event.keyCode || event.which) === options.key && !KeyController.activeKeys[options.key]) {
 		        KeyController.activeKeys[options.key] = true;
 		    	triggerDownKeyCallback();
-		    	if(options.repeat)
-		    		KeyController.repeatedCallsHandler[options.key] = setInterval(triggerDownKeyCallback, 1000 / options.repeatDelay);
+		    	if(options.continuous)
+		    		KeyController.repeatedCallsHandler[options.key] = setInterval(triggerDownKeyCallback, 1000 / options.rate);
 		    }
 		});
 
