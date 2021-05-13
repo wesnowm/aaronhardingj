@@ -36,7 +36,7 @@ Pass the call back functions to the respective arguments. In this example, the m
 
 ```javascript
 KeyController.add({
-  '65',
+  key: '65',
   down: function(){
     console.log('key has been pressed');
   },
@@ -57,7 +57,7 @@ Below is a small example that continually prints a message in the console whilst
 var KeyController = new KeyController();
 
 KeyController.add({
-  '65',
+  key: '65',
   down: function(){
     console.log('The A key has been pressed and this message will keep printing to the console at a rate of 10 per second.');
   },
@@ -69,7 +69,7 @@ KeyController.add({
 }); 
 
 KeyController.add({
-  '68',
+  key: '68',
   down: function(){
     console.log('The D key has been pressed.');
   },
