@@ -5,10 +5,10 @@
 
 * @author Aaron Harding <aaron.harding@graphitedigital.com>
 */
-function KeyController(continuous, rate) {
+function KeyController() {
 	this.defaults = {
-		'continuous' : continuous || false,
-		'rate' : rate || 30
+		'continuous' : false,
+		'rate' : 30
 	}
 	this.repeatedCallsHandler = {};
 	this.activeKeys = {};
