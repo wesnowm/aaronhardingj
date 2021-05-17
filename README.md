@@ -32,7 +32,9 @@ KeyController.add({
 }); 
 ```
 
-Pass the call back functions to the respective arguments. In this example, the message "key has been pressed" will appear in the console 10 times a second whilst the user is holding down the "a" key. On release, the message "key has been released" will appear.
+Pass the callback functions to the respective arguments. Assign them to a key. Toggle whether the <b>down()</b> function will run continuously, and if so, set the refresh rate.
+
+In this example, the message "key has been pressed" will appear in the console 10 times a second whilst the user is holding down the "a" key. On release, the message "key has been released" will appear.
 
 ```javascript
 KeyController.add({
