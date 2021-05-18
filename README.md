@@ -34,7 +34,7 @@ KeyController.add({
 
 Pass the callback functions to the respective arguments. Assign them to a key. Toggle whether the <b>down()</b> function will run continuously, and if so, set the refresh rate.
 
-In this example, the message "key has been pressed" will appear in the console 10 times a second whilst the user is holding down the "a" key. On release, the message "key has been released" will appear.
+In this example, the message "key has been pressed" will appear in the console 10 times a second whilst the user is holding down the "A" key. On release, the message "key has been released" will appear.
 
 ```javascript
 KeyController.add({
@@ -52,7 +52,7 @@ KeyController.add({
 
 ## Full example
 
-Below is a small example that continually prints a message in the console whilst the 'A' key is pressed and held down, and then prints a last message when the 'A' key has been released. Also it prints one message in the console when the 'D' key is pressed, and then prints a message when the 'D' key has been released.
+Below is a small example that continually prints a message in the console whilst the "A" key is pressed and held down, and then prints a last message when the "A" key has been released. Also it prints one message in the console when the "D" key is pressed, and then prints a message when the "D" key has been released.
 
 ```javascript
 
