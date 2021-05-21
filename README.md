@@ -1,6 +1,6 @@
 # jQuery Continuous Key Press Handler
 
-A jQuery based Javascript class that handles all key presses. Offers a continuous key press event on multiple keys at a custom refresh rate. Allows the setting of a different callback function for when the key is pressed and to when it has been released.
+A jQuery based Javascript class that handles all key presses. Offers a continuous key press event on multiple keys at a custom refresh rate. Allows the setting of a different callback function for press and release of key.
 
 ## Requires
 
